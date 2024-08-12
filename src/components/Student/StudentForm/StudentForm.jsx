@@ -26,7 +26,6 @@ const StudentForm = (props) => {
         setFormData({ ...formData, [target.name]: target.value });
     } 
 
-
     return(
         <>
             <form onSubmit={handleSubmit}>
