@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/:userId/students/:studentId" element={<StudentDetails user={user}/>} />
             <Route path="/:userId/students/new" element={<StudentForm user={user} createStudent={createStudent}/>} />
             
-            <Route path="/:userId/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />/staff/new
+            <Route path="/:userId/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />
             <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} />
             <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} />
           </>
