@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 
 const StudentList = ({getStudents}) => {
     const [students, setStudents] = useState([])
@@ -30,7 +29,7 @@ const StudentList = ({getStudents}) => {
                 <ul>
                 {students.map(student => (
                     <li key={student._id}>
-                        <p>{student.lastName}, {student.firstName}</p>
+                        <Link to={`/students/${student._id}`}><p>{student.lastName}, {student.firstName}</p> </Link>
                         <p>{student.grade}</p>{/*Add more stuff later */}
                     </li>
                 ))}

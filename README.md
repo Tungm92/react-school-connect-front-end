@@ -7,3 +7,7 @@ day 1:
 
 --------------------------------------------
 
+day 2:
+- finish student rountes
+- Problem: LogForm functionality studentId undefined
+
