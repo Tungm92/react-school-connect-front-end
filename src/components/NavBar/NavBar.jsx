@@ -10,7 +10,8 @@ const NavBar = ({ user, handleSignout }) => {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/">All Logs</Link></li>
-              <li><Link to="/">Students</Link></li>
+              <li><Link to="/students">Students</Link></li>
+              <li><Link to="/students/new">Add Students</Link></li>
               <li><Link to="" onClick={handleSignout}>Sign Out</Link></li>
             </ul>
           </nav>
