@@ -61,7 +61,7 @@ const StudentForm = (props) => {
                     <input name="iep" id="iep" type="checkbox"></input>
                 <label htmlFor="plan504">504 Plan:</label>
                     <input name="plan504" id="plan504" type="checkbox"></input>
-                <label htmlFor="eld">ELD:</label>
+                <label htmlFor="eld">ELD Level:</label>
                     <select  name="eld" id="eld">
                         <option value={formData.eld}>1</option>
                         <option value={formData.eld}>2</option>

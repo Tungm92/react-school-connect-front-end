@@ -33,9 +33,12 @@ const App = () => {
             <Route path="/students/:studentId" element={<StudentDetails getStudentById={getStudentById}/>} />
             <Route path="/students/new" element={<StudentForm user={user} createStudent={createStudent}/>} />
             
+
             <Route path="/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />
-            {/* <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} />
-            <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} /> */}
+            <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} />
+            <Route path="/:userId/students/:studentId/logs/:logId" element={<LogDetails user={user}/>} />
+
+
           </>
         ) : (
           <Route path="/" element={<Landing />} />

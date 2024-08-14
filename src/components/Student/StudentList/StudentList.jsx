@@ -29,8 +29,12 @@ const StudentList = ({getStudents}) => {
                 <ul>
                 {students.map(student => (
                     <li key={student._id}>
+
                         <Link to={`/students/${student._id}`}><p>{student.lastName}, {student.firstName}</p> </Link>
-                        <p>{student.grade}</p>{/*Add more stuff later */}
+                        <p>{student.grade}</p>{/* Add more stuff later: IEP, 504 Plan, ELD level, and logs */}
+
+                        
+
                     </li>
                 ))}
                 </ul>
