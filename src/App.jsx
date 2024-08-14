@@ -12,8 +12,9 @@ import StudentDetails from './components/Student/StudentDetails/StudentDetails'
 import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/StudentLogs/LogForm/LogForm'
 import LogList from './components/StudentLogs/LogList/LogList'
-import {getStudents, createStudent, getStudentById} from './services/studentService'
-import {createLog, getLogs} from './services/logService'
+import LogDetails from './components/StudentLogs/LogDetails/LogDetails'
+import {getStudents, createStudent, getStudentById, getStudentLogs} from './services/studentService'
+import {createLog, getLogs, getLogById} from './services/logService'
 import * as authService from '../src/services/authService'; // import the authservice
 import '../src/App.css'
 
@@ -32,15 +33,15 @@ const App = () => {
           <>
             <Route path="/" element={<Dashboard user={user} />} /> 
             <Route path="/students" element={<StudentList user={user} getStudents={getStudents}/>} />
-            <Route path="/students/:studentId" element={<StudentDetails getStudentById={getStudentById}/>} />
+            <Route path="/students/:studentId" element={<StudentDetails getStudentLogs={getStudentLogs} getStudentById={getStudentById}/>} />
             <Route path="/students/new" element={<StudentForm user={user} createStudent={createStudent}/>} />
             
 
             <Route path="/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />
 Feature/log
-            <Route path="/students/:studentId/logs" element={<LogList user={user} getLogs={getLogs}/>} />
+            <Route path="/students/:studentId/logs" element={<LogList user={user} getStudentLogs={getStudentLogs}/>} />
             <Route path="/mylogs" element={<LogList user={user} getLogs={getLogs}/>} />
-
+            <Route path="/students/:studentId/logs/:logId" element={<LogDetails user={user} getLogById = {getLogById} getStudentLogs={getStudentLogs}/>} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />

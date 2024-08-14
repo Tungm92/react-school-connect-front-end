@@ -12,6 +12,16 @@ const getLogs = async () => {
     }
 }
 
+const getLogById = async (logId) => {
+    try{
+        const response = await fetch(`${BASE_URL}/${logId}`,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+        return response.json();
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
 const createLog = async (log) => {
     const response = await fetch(BASE_URL,{
@@ -28,4 +38,5 @@ const createLog = async (log) => {
 
 
 
-export{createLog, getLogs}
+
+export{createLog, getLogs, getLogById}

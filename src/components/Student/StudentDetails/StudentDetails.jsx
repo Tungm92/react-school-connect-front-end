@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import LogList from '../../StudentLogs/LogList/LogList'
 
 const StudentDetails = ({getStudentById}) => {
  
@@ -26,12 +26,12 @@ const StudentDetails = ({getStudentById}) => {
             <h2>{studentData.firstName}, {studentData.lastName}</h2>
             <br />
             <p>Grade: {studentData.grade}</p>
-            <p>IEP: {studentData.iep ? 'No IEP' : 'Enrolled'}</p>
-            <p>Plan 504: {studentData.plan504 ? 'No plan504' : 'Enrolled'}</p>
-            <p>ELD: {studentData.eid ? studentData.eid : 'N/A'}</p>
+            <p>IEP: {studentData.iep ? 'No IEP' : 'Active'}</p>
+            <p>Plan 504: {studentData.plan504 ? 'No plan504' : 'Active'}</p>
+            <p>ELD: {studentData.eld ? studentData.eld : 'N/A'}</p>
             <h1></h1>
             <div>
-                <h2>Student Logs:</h2>
+                <LogList/>
             </div>
         </main> 
     );

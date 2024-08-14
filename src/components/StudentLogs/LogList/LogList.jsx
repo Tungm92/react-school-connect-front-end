@@ -1,25 +1,38 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
+const LogList = ({ getStudentLogs, getLogs }) => {
+  const { studentId } = useParams();
+  const [logs, setLogs] = useState([]);
 
-const LogList = () => {
-    const {studentId} = useParams()
-    
-    return (
-        <>
-          { studentId ? (
-            <h1>This is a Student Log List</h1>
-          ) : (
-        
-            <h1>
-                This is user Log 
+  useEffect(() => {
+    const fetchLogs = async () => {
+      try {
+        let log;
+        if (studentId) {
+          log = await getStudentLogs(studentId);
+        } else {
+          log = await getLogs();
+        }
+        setLogs(log);
+      } catch (error) {
+        console.error('Failed to fetch Logs:', error);
+      }
+    };
 
-            </h1>
-        
-          )}
-        </>
-      )
+    fetchLogs();
+  }, [studentId, getStudentLogs, getLogs]);  
 
-}
+  return (
+    <div>
+      <h1>These are the logs</h1>
+      <ul>
+        {logs.map((log) => (
+        <li key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}>{log.purpose}</Link>: {log.notes}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default LogList
+export default LogList;
