@@ -13,6 +13,7 @@ import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/Logs/LogForm/LogForm'
 import {getStudents, createStudent, getStudentById, createLog} from './services/studentService'
 import * as authService from '../src/services/authService'; // import the authservice
+import '../src/App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice

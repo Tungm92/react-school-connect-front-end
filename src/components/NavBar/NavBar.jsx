@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
+import './NavBar.css'
 
-// src/components/Navbar/Navbar.jsx
 
 const NavBar = ({ user, handleSignout }) => {
     return (
       <>
         { user ? (
           <nav>
-            <ul>
+            <ul className="nav-bar">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/">All Logs</Link></li>
               <li><Link to="/students">Students</Link></li>
@@ -17,7 +17,7 @@ const NavBar = ({ user, handleSignout }) => {
           </nav>
         ) : (
           <nav>
-            <ul>
+            <ul className="nav-bar">
               <li><Link to="/signin">Sign In</Link></li>
               <li><Link to="/signup">Sign Up</Link></li>
             </ul>
