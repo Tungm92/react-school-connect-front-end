@@ -1,4 +1,4 @@
-// src/components/Dashboard.jsx
+import './Dashboard.css'
 
 const Dashboard = ({ user }) => {
     return (

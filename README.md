@@ -1,8 +1,13 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+day 1:
+- finished students routes 
+- almost finish student components 
+* form complete detail list incomplete 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+--------------------------------------------
+
+day 2:
+- finish student rountes
+- Problem: LogForm functionality studentId undefined
+
