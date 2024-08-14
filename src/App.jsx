@@ -11,7 +11,8 @@ import StudentList from './components/Student/StudentList/StudentList'
 import StudentDetails from './components/Student/StudentDetails/StudentDetails'
 import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/Logs/LogForm/LogForm'
-import {getStudents, createStudent, getStudentById, createLog} from './services/studentService'
+import {getStudents, createStudent, getStudentById} from './services/studentService'
+import {createLog} from './services/logService'
 import * as authService from '../src/services/authService'; // import the authservice
 import '../src/App.css'
 
