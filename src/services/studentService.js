@@ -38,4 +38,15 @@ const getStudentById = async (studentId) => {
 }
 
 
-export { getStudents, createStudent, getStudentById};
+const getStudentLogs = async (studentId) => {
+    try{
+        const response = await fetch(`${BASE_URL}/${studentId}/logs`,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+        return response.json();
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export { getStudents, createStudent, getStudentById, getStudentLogs};
