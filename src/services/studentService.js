@@ -37,18 +37,5 @@ const getStudentById = async (studentId) => {
     }
 }
 
-const createLog = async (studentId, log) => {
-    const response = await fetch(`${BASE_URL}/${studentId}/logs`,{
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(log),
-    })
-    if (!response.ok) throw new Error('Failed to create log');
-    return response.json();
-}
 
-
-export { getStudents, createStudent, getStudentById,createLog};
+export { getStudents, createStudent, getStudentById};
