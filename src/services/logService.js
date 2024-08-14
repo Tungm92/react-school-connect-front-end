@@ -1,5 +1,18 @@
 const BASE_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/logs`;
 
+
+const getLogs = async () => {
+    try{
+        const response = await fetch(BASE_URL,{headers:{Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+        return response.json();
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+
 const createLog = async (log) => {
     const response = await fetch(BASE_URL,{
         method: 'POST',
@@ -14,4 +27,4 @@ const createLog = async (log) => {
 }
 
 
-export{createLog}
+export{createLog, getLogs}
