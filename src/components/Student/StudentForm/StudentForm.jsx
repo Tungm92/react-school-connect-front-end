@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 const initialState = {
     firstName:'',
     lastName: '',
-    grade: null,
+    grade: '9',
     iep: false,
     plan504: false,
-    eld: ''
+    eld: '1'
   };
   
 
@@ -23,8 +23,12 @@ const StudentForm = (props) => {
     }   
     
     const handleChange = ({target}) => {
-        setFormData({ ...formData, [target.name]: target.value });
-    } 
+        const { name, value, type, checked } = target;
+        setFormData({
+            ...formData,
+            [name]: type === 'checkbox' ? checked : value,
+        });
+    };
 
     return(
         <>
@@ -65,7 +69,7 @@ const StudentForm = (props) => {
                         <option value={formData.eld}>4</option>
                         <option value={formData.eld}>5</option>
                         <option value={formData.eld}>FLEP</option>
-                        <option selected value={formData.eld}>N/A</option>
+                        <option value={formData.eld}>N/A</option>
                     </select>
                 <button type="submit">Submit</button>
             </form>

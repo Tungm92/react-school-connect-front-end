@@ -2,21 +2,29 @@ import {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 
-const StudentDetails = (props) => {
-    const studentId = useParams()
+const StudentDetails = ({getStudentById}) => {
+    // const [studentData, setStudentData] = useState()
+    // const {studentId} = useParams()
 
-    //assume we have a function called getStudent
+    // useEffect(() => {
+    //     const fetchStudent = async () => {
+    //         try {
+    //             const student = await getStudentById(studentId)
+    //             setStudentData({ title: track.title, artist: track.artist });
+    //          } catch (error) {
+    //             console.error('Failed to fetch track:', error);
+    //           }
+    //         }
+    //     fetchStudent()
+    // }, [id])
+    
+
+
+
 
     return(
         <main>
-            <div className="student-info">
-                <p>{}</p>
-            </div>
-        
-            <div className="student-logs">
-
-            </div>
-        
+            <h1>This is the student detail page </h1>
         </main>
 
     )
