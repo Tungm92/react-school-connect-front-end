@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <main className="container">
       <header className="item-a">
-        <h1>hello</h1>
+        <h1>SchoolConnect.</h1>
       </header>
       <section className="item-b">
       </section>

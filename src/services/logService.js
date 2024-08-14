@@ -27,4 +27,5 @@ const createLog = async (log) => {
 }
 
 
+
 export{createLog, getLogs}
