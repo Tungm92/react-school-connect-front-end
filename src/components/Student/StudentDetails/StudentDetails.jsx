@@ -3,31 +3,30 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 const StudentDetails = ({getStudentById}) => {
-    // const [studentData, setStudentData] = useState()
-    // const {studentId} = useParams()
+ 
+    const {studentId} = useParams() 
 
-    // useEffect(() => {
-    //     const fetchStudent = async () => {
-    //         try {
-    //             const student = await getStudentById(studentId)
-    //             setStudentData({ title: track.title, artist: track.artist });
-    //          } catch (error) {
-    //             console.error('Failed to fetch track:', error);
-    //           }
-    //         }
-    //     fetchStudent()
-    // }, [id])
-    
+    const [studentData, setStudentData] = useState(null)
 
+    useEffect(() => {
+        const fetchStudentData = async () => {
+            const data = await getStudentById(studentId);  
+            setStudentData(data);  
+        }
+        fetchStudentData();  
+    }, [studentId, getStudentById]);  
 
+    if (!studentData) {
+        return <p>Loading...</p>; 
+    }
 
-
-    return(
+    return (
         <main>
-            <h1>This is the student detail page </h1>
+            <h1>This is the student detail page</h1>
+            <h1>{studentData.lastName}</h1>
+            <h1>{studentData.firstName}</h1>
         </main>
-
-    )
-}
+    );
+};
 
 export default StudentDetails
