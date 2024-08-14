@@ -23,9 +23,17 @@ const StudentDetails = ({getStudentById}) => {
     return (
         <main>
             <h1>This is the student detail page</h1>
-            <h1>{studentData.lastName}</h1>
-            <h1>{studentData.firstName}</h1>
-        </main>
+            <h2>{studentData.firstName}, {studentData.lastName}</h2>
+            <br />
+            <p>Grade: {studentData.grade}</p>
+            <p>IEP: {studentData.iep ? 'No IEP' : 'Enrolled'}</p>
+            <p>Plan 504: {studentData.plan504 ? 'No plan504' : 'Enrolled'}</p>
+            <p>ELD: {studentData.eid ? studentData.eid : 'N/A'}</p>
+            <h1></h1>
+            <div>
+                <h2>Student Logs:</h2>
+            </div>
+        </main> 
     );
 };
 
