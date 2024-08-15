@@ -1,6 +1,6 @@
 import {useState, useEffect } from 'react';
 import { useNavigate,useParams} from 'react-router-dom';
-
+import "./LogForm.css"
 
 const LogForm = (props) => {
     const {studentId} = useParams()
@@ -51,21 +51,25 @@ const LogForm = (props) => {
         <>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="student">Student:</label>
-                <select name="studentId" id="student" value={formData.studentId} onChange={handleChange} required>
-                    <option value="">Select a student</option>
-                    {students.map((student) => (
-                        <option key={student._id} value={student._id}>
-                            {student.firstName} {student.lastName}
-                        </option>
-                    ))}
-                </select>
-                    <label htmlFor="purpose">Purpose:</label>
-                    <select  name="purpose" id="purpose" value={formData.purpose} onChange={handleChange}>
-                    <option value="">Select a purpose</option>
-                        <option value="Conduct Referral">Conduct Referral</option>
-                        <option value="MTSS Referral">MTSS Referral</option>
-                        <option value="Journal">Journal</option>
+                <div className="custom-select">
+                    <select name="studentId" id="student" value={formData.studentId} onChange={handleChange} required>
+                        <option value="">Select a student</option>
+                        {students.map((student) => (
+                            <option key={student._id} value={student._id}>
+                                {student.firstName} {student.lastName}
+                            </option>
+                        ))}
                     </select>
+                </div>
+                    <label htmlFor="purpose">Purpose:</label>
+                    <div className="custom-select">
+                        <select  name="purpose" id="purpose" value={formData.purpose} onChange={handleChange}>
+                        <option value="">Select a purpose</option>
+                            <option value="Conduct Referral">Conduct Referral</option>
+                            <option value="MTSS Referral">MTSS Referral</option>
+                            <option value="Journal">Journal</option>
+                        </select>
+                    </div>
                 <label htmlFor="notes">notes:</label>
                     <textarea required type="text" name="notes" id="notes" value={formData.notes} onChange={handleChange} rows="5" cols="50"></textarea>
                 <button type="submit">Submit</button>

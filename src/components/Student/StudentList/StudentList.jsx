@@ -20,12 +20,11 @@ const StudentList = ({getStudents}) => {
     return(
         <>
             <h1>Student List</h1>
-                <ul>
+                <ul className="flex-container">
                 {students.map(student => (
                     <li className="student-list"key={student._id}>
                         <Link to={`/students/${student._id}`}><p><strong>{student.lastName}, {student.firstName}</strong></p> </Link>
                         <p>Grade: {student.grade}</p>
-
                     </li>
                 ))}
                 </ul>
