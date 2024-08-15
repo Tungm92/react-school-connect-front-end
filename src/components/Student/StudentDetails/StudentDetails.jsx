@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import LogList from '../../StudentLogs/LogList/LogList'
 
-const StudentDetails = ({getStudentById}) => {
+const StudentDetails = ({getStudentById, getStudentLogs}) => {
  
     const {studentId} = useParams() 
 
@@ -31,7 +31,7 @@ const StudentDetails = ({getStudentById}) => {
             <p>ELD: {studentData.eld ? studentData.eld : 'N/A'}</p>
             <h1></h1>
             <div>
-                <LogList/>
+                <LogList getStudentLogs={getStudentLogs}/>
             </div>
         </main> 
     );

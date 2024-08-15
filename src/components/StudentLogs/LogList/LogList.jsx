@@ -8,13 +8,13 @@ const LogList = ({ getStudentLogs, getLogs }) => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        let log;
+        let logData;
         if (studentId) {
-          log = await getStudentLogs(studentId);
+          logData = await getStudentLogs(studentId);
         } else {
-          log = await getLogs();
+          logData = await getLogs();
         }
-        setLogs(log);
+        setLogs(logData);
       } catch (error) {
         console.error('Failed to fetch Logs:', error);
       }
