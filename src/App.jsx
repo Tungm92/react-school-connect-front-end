@@ -13,8 +13,8 @@ import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/StudentLogs/LogForm/LogForm'
 import LogList from './components/StudentLogs/LogList/LogList'
 import LogDetails from './components/StudentLogs/LogDetails/LogDetails'
+import { getStudents, createStudent, getStudentById, getStudentLogs, deleteStudent, updateStudent } from './services/studentService'
 import EditLog from './components/StudentLogs/EditLog/EditLog'
-import { getStudents, createStudent, getStudentById, getStudentLogs } from './services/studentService'
 import {createLog, getLogs, getLogById, updateLog, deleteLog} from './services/logService'
 import * as authService from '../src/services/authService'; // import the authservice
 import '../src/App.css'
@@ -34,7 +34,8 @@ const App = () => {
           <>
             <Route path="/" element={<Dashboard user={user} />} /> 
             <Route path="/students" element={<StudentList user={user} getStudents={getStudents}/>} />
-            <Route path="/students/:studentId" element={<StudentDetails getStudentLogs={getStudentLogs} getStudentById={getStudentById}/>} />
+            <Route path="/students/:studentId" element={<StudentDetails getStudentLogs={getStudentLogs} getStudentById={getStudentById} deleteStudent={deleteStudent} updateStudent={updateStudent}/>} />
+            <Route path="/students/:studentId/update" element={<StudentForm user={user}/>} />
             <Route path="/students/new" element={<StudentForm user={user} createStudent={createStudent}/>} />
             
             <Route path="/mylogs/new" element={<LogForm user={user} createLog={createLog} getStudents={getStudents}/>} />
