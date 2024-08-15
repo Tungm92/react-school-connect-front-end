@@ -28,46 +28,8 @@ const LogForm = (props) => {
         fetchStudents();
     }, []);
 
-    // Fetch log data if editing an existing log
-    useEffect(() => {
-        if (logId) {
-            const fetchLogData = async () => {
-                try {
-                    const log = await props.getLogById(logId);
-                    setFormData({
-                        studentId: log.studentId._id,
-                        purpose: log.purpose,
-                        notes: log.notes,
-                    });
-                } catch (error) {
-                    console.error('Failed to fetch Log:', error);
-                }
-            };
-
-            fetchLogData();
-        }
-    }, [logId]);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            if (logId) {
-                // Update existing log
-                await props.updateLog(logId, formData);
-            } else {
-                // Create new log
-                await props.createLog(formData);
-            }
-            setFormData(initialState);
-            navigate(`/mylogs`);
-        } catch (error) {
-            console.error('Failed to save Log:', error);
-        }
-    };
-
-    const handleChange = ({ target }) => {
-        const { name, value } = target;
+    const handleChange = ({target}) => {
+        const { name, value} = target;
         setFormData({
             ...formData,
             [name]: value
