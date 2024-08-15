@@ -31,7 +31,7 @@ const StudentDetails = ({getStudentById, getStudentLogs, deleteStudent}) => {
     }
 
     const handleUpdate = async () => {
-        navigate(`/students/${studentId}/update`)
+        navigate(`/students/${studentId}/edit`)
     }
 
     return (
@@ -40,8 +40,8 @@ const StudentDetails = ({getStudentById, getStudentLogs, deleteStudent}) => {
             <h2>{studentData.firstName}, {studentData.lastName}</h2>
             <br />
             <p>Grade: {studentData.grade}</p>
-            <p>IEP: {studentData.iep ? 'No IEP' : 'Active'}</p>
-            <p>Plan 504: {studentData.plan504 ? 'No plan504' : 'Active'}</p>
+            <p>IEP: {studentData.iep ? 'Active' : 'N/A'}</p>
+            <p>Plan 504: {studentData.plan504 ? 'Active' : 'N/A'}</p>
             <p>ELD: {studentData.eld ? studentData.eld : 'N/A'}</p>
             <button onClick={handleUpdate}>Edit</button>
             <button onClick={handleDelete} >Delete</button>

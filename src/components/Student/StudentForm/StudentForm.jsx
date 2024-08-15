@@ -36,12 +36,14 @@ const StudentForm = (props) => {
         e.preventDefault()
         if (studentId) {
             await updateStudent(studentId, formData)
+            setFormData(initialState)
+            navigate(`/students/${studentId}`)
         } else {
             props.createStudent(formData)
-        }
-        setFormData(initialState)
-        navigate('/students') 
-    }
+            setFormData(initialState)
+            navigate('/students')
+        };
+    };
     
     const handleChange = ({target}) => {
         const { name, value, type, checked } = target;
@@ -62,7 +64,6 @@ const StudentForm = (props) => {
                     value={formData.firstName}
                     onChange={handleChange}
                     />
-
                 <label htmlFor="lastName">Last Name:</label>
                     <input
                     type="text"
@@ -79,9 +80,19 @@ const StudentForm = (props) => {
                         <option value="12">12</option>
                     </select>
                 <label htmlFor="iep">IEP:</label>
-                    <input name="iep" id="iep" type="checkbox" value={formData.iep} onChange={handleChange}></input>
+                    <input 
+                        name="iep" 
+                        id="iep" 
+                        type="checkbox" 
+                        checked={formData.iep} 
+                        onChange={handleChange}></input>
                 <label htmlFor="plan504">504 Plan:</label>
-                    <input name="plan504" id="plan504" type="checkbox" value={formData.plan504} onChange={handleChange}></input>
+                    <input 
+                        name="plan504" 
+                        id="plan504" 
+                        type="checkbox" 
+                        checked={formData.plan504} 
+                        onChange={handleChange}></input>
                 <label htmlFor="eld">ELD Level:</label>
                     <select  name="eld" id="eld" value={formData.eld} onChange={handleChange}>
                         <option value="1">1</option>

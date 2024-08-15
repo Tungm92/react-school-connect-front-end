@@ -34,16 +34,15 @@ const App = () => {
           <>
             <Route path="/" element={<Dashboard user={user} />} /> 
             <Route path="/students" element={<StudentList user={user} getStudents={getStudents}/>} />
-            <Route path="/students/:studentId" element={<StudentDetails getStudentLogs={getStudentLogs} getStudentById={getStudentById} deleteStudent={deleteStudent} updateStudent={updateStudent}/>} />
-            <Route path="/students/:studentId/update" element={<StudentForm user={user}/>} />
             <Route path="/students/new" element={<StudentForm user={user} createStudent={createStudent}/>} />
+            <Route path="/students/:studentId" element={<StudentDetails user={user} getStudentLogs={getStudentLogs} getStudentById={getStudentById} deleteStudent={deleteStudent} updateStudent={updateStudent}/>} />
+            <Route path="/students/:studentId/edit" element={<StudentForm user={user}/>} />
             
+            <Route path="/mylogs" element={<LogList user={user} getLogs={getLogs}/>} />
             <Route path="/mylogs/new" element={<LogForm user={user} createLog={createLog} getStudents={getStudents}/>} />
             <Route path="/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog} getStudents={getStudents}/>} />
-            <Route path="/mylogs" element={<LogList user={user} getLogs={getLogs}/>} />
-            <Route path="/students/:studentId/edit/logs/:logId" element={<EditLog user={user} getLogById = {getLogById} updateLog = {updateLog}/>} />
             <Route path="/students/:studentId/logs/:logId" element={<LogDetails user={user} deleteLog={deleteLog} getLogById = {getLogById} getStudentLogs={getStudentLogs}/>} />
-
+            <Route path="/students/:studentId/logs/:logId/edit" element={<EditLog user={user} getLogById = {getLogById} updateLog = {updateLog}/>} />
           </>
         ) : (
           <Route path="/" element={<Landing />} />

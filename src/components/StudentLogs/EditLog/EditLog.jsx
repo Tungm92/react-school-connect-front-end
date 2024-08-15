@@ -28,8 +28,6 @@ const EditLog = ({ updateLog, getLogById }) => {
         fetchLog()
     }, [logId, getLogById])
     
-    
-    
     const handleSubmit = async(e) => {
         e.preventDefault()
         try{
@@ -59,8 +57,7 @@ const EditLog = ({ updateLog, getLogById }) => {
             <button type="submit">Submit</button>
         </form>
     </>
-    )
-
-}
+    );
+};
 
 export default EditLog;

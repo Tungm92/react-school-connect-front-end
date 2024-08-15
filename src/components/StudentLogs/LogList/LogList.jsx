@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './LogList.css'
+import './LogList.css';
 const LogList = ({ getStudentLogs, getLogs }) => {
   const { studentId } = useParams();
   const [logs, setLogs] = useState([]);
@@ -17,7 +17,7 @@ const LogList = ({ getStudentLogs, getLogs }) => {
         setLogs(logData);
       } catch (error) {
         console.error('Failed to fetch Logs:', error);
-      }
+      };
     };
 
     fetchLogs();
@@ -26,7 +26,11 @@ const LogList = ({ getStudentLogs, getLogs }) => {
   return (
     <div>
       <h1>Your Logs</h1>
-      <Link to={`/mylogs/new`}><p className="add-log-link">Add Log</p></Link>
+      {studentId ? 
+        (<Link to={`/students/${studentId}/logs/new`}><p className="add-log-link">Add Log</p></Link>) 
+        : 
+        (<Link to={`/mylogs/new`}><p className="add-log-link">Add Log</p></Link>)} 
+      
       <ul className="all-logs">
         {logs.map((log) => (
         <li className="logs" key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}> {log.studentId.firstName ? 

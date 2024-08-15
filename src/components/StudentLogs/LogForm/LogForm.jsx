@@ -38,8 +38,6 @@ const LogForm = (props) => {
         fetchStudents();
       }, []);
 
-
-    
     const handleChange = ({target}) => {
         const { name, value} = target;
         setFormData({
