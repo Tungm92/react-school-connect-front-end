@@ -25,7 +25,8 @@ const LogList = ({ getStudentLogs, getLogs }) => {
 
   return (
     <div>
-      <h1>Your Logs</h1>
+      <h1>Logs</h1>
+      
       <Link to={`/mylogs/new`}><p className="add-log-link">Add Log</p></Link>
       <ul className="all-logs">
         {logs.map((log) => (
