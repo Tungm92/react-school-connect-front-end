@@ -26,7 +26,7 @@ const LogList = ({ getStudentLogs, getLogs }) => {
   return (
     <div>
       <h1>Your Logs</h1>
-      <Link to={`/students/${studentId}/logs/new`}><p>Add Log</p></Link>
+      <Link to={`/mylogs/new`}><p>Add Log</p></Link>
       <ul className="all-logs">
         {logs.map((log) => (
         <li className="logs" key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}> {log.studentId.firstName ? 
