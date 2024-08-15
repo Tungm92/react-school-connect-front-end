@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './StudentList.css'
+
 const StudentList = ({getStudents}) => {
     const [students, setStudents] = useState([])
 
@@ -16,10 +16,6 @@ const StudentList = ({getStudents}) => {
       
         fetchStudents();
       }, [getStudents]);
-
-    if (!students) {
-      return <p>Loading...</p>; 
-    }
     
     return(
         <>

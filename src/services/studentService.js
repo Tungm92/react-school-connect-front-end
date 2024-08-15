@@ -52,12 +52,14 @@ const getStudentLogs = async (studentId) => {
     }
 }
 
-const updateStudent = async (studentId) => {
+const updateStudent = async (studentId, student) => {
     try {
         const response = await fetch(`${BASE_URL}/${studentId}`, {
             method: 'PUT',
             headers:{
-                Authorization: `Bearer ${localStorage.getItem('token')}`},
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'},
+            body: JSON.stringify(student)
         });
     } catch (error) {
         console.log('Failed to update student information: ', error);

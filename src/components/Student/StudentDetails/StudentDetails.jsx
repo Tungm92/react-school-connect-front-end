@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import LogList from '../../StudentLogs/LogList/LogList'
 
 const StudentDetails = ({getStudentById, getStudentLogs, deleteStudent}) => {
  
     const {studentId} = useParams() 
-
+    const navigate = useNavigate()
     const [studentData, setStudentData] = useState(null)
 
     useEffect(() => {
@@ -20,12 +20,18 @@ const StudentDetails = ({getStudentById, getStudentLogs, deleteStudent}) => {
         return <p>Loading...</p>; 
     }
 
-    const handleDelete = async (studentId) => {
+    const handleDelete = async () => {
         try {
-            await deleteStudent(studentId)
+            await deleteStudent(studentId);
+            navigate('/students')
         } catch (error) {
-
+            console.error('Failed to delete student: ', error);
+            alert('An error occurred while deleting the student.');
         }
+    }
+
+    const handleUpdate = async () => {
+        navigate(`/students/${studentId}/update`)
     }
 
     return (
@@ -37,7 +43,7 @@ const StudentDetails = ({getStudentById, getStudentLogs, deleteStudent}) => {
             <p>IEP: {studentData.iep ? 'No IEP' : 'Active'}</p>
             <p>Plan 504: {studentData.plan504 ? 'No plan504' : 'Active'}</p>
             <p>ELD: {studentData.eld ? studentData.eld : 'N/A'}</p>
-            <button>Edit</button>
+            <button onClick={handleUpdate}>Edit</button>
             <button onClick={handleDelete} >Delete</button>
             <h1></h1>
             <div>

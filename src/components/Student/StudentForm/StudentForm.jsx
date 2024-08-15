@@ -1,23 +1,47 @@
-import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-
-const initialState = {
-    firstName:'',
-    lastName: '',
-    grade: '9',
-    iep: false,
-    plan504: false,
-    eld: '1'
-  };
-  
+import {useState, useEffect} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getStudentById, updateStudent } from '../../../services/studentService';
 
 const StudentForm = (props) => {
-    const [formData, setFormData] = useState(initialState);
+    
+    const initialState = {
+        firstName:'',
+        lastName: '',
+        grade: '9',
+        iep: false,
+        plan504: false,
+        eld: '1'
+    };
+
+    const { studentId } = useParams();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const [formData, setFormData] = useState(initialState);
+
+    if (studentId) {
+        useEffect(() => {
+            const fetchStudent = async () => {
+                try {
+                    const student = await getStudentById(studentId);
+                    setFormData(student);
+                } catch (error) {
+                    console.error('Failed to fetch student: ', error);
+                };
+            };
+            fetchStudent()
+        }, [studentId, getStudentById]);
+    };
+
+    
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        props.createStudent(formData)
+
+        if (studentId) {
+            props.createStudent(formData)
+        } else {
+            await updateStudent
+        }
         setFormData(initialState)
         navigate('/students') 
     }   
@@ -29,7 +53,7 @@ const StudentForm = (props) => {
             [name]: type === 'checkbox' ? checked : value,
         });
     };
-
+    console.log(formData)
     return(
         <>
             <form onSubmit={handleSubmit}>
@@ -51,18 +75,18 @@ const StudentForm = (props) => {
                     onChange={handleChange}
                     />        
                 <label htmlFor="grade">Grade:</label>
-                    <select  name="grade" id="grade">
+                    <select  name="grade" id="grade" value={formData.grade}>
                         <option value={formData.grade}>9</option>
                         <option value={formData.grade}>10</option>
                         <option value={formData.grade}>11</option>
                         <option value={formData.grade}>12</option>
                     </select>
                 <label htmlFor="iep">IEP:</label>
-                    <input name="iep" id="iep" type="checkbox"></input>
+                    <input name="iep" id="iep" type="checkbox" value={formData.iep}></input>
                 <label htmlFor="plan504">504 Plan:</label>
-                    <input name="plan504" id="plan504" type="checkbox"></input>
+                    <input name="plan504" id="plan504" type="checkbox" value={formData.plan504}></input>
                 <label htmlFor="eld">ELD Level:</label>
-                    <select  name="eld" id="eld">
+                    <select  name="eld" id="eld" value={formData.eld}>
                         <option value={formData.eld}>1</option>
                         <option value={formData.eld}>2</option>
                         <option value={formData.eld}>3</option>
