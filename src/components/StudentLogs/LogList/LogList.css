@@ -9,5 +9,25 @@ strong:hover{
 }
 
 span {
-    color: darkblue;
+    color: #F5A623;
+}
+
+.add-log-link {
+    margin: 1rem;
+}
+
+.add-log-link:hover{
+    text-decoration: underline;
+}
+
+.log-card {
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.all-logs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

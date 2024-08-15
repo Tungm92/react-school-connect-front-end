@@ -18,3 +18,13 @@
 .links {
     display: flex;
 }
+
+#logo {
+    width: 90px;
+    height: 90px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}

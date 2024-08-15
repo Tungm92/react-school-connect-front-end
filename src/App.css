@@ -40,7 +40,7 @@ form {
 label {
   display: block;
   font-size: 1.25rem;
-  margin: 1rem;
+  margin-top: 1.25rem;
 }
 
 button{
@@ -48,13 +48,59 @@ button{
   padding: 0 1rem;
   border-radius: 10px;
   border: none;
-  background-color: #4A4A4A;
+  background-color: #4A90E2;
   color: white;
   font-size: 1.5rem;
 }
 
 button:hover {
-  border: 1px solid black;
-  color: black;
+  border: 1px solid grey;
+  color: #4A90E2;
   background-color: white;
+}
+
+span {
+  color: #F5A623;
+}
+
+
+/* Form Select Styling */
+.custom-select {
+  min-width: 200px;
+  position: relative;
+}
+
+.custom-select select {
+  appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
 }

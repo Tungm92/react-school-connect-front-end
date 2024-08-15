@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import './StudentFomr.css'
 
 const initialState = {
     firstName:'',
@@ -51,17 +52,24 @@ const StudentForm = (props) => {
                     onChange={handleChange}
                     />        
                 <label htmlFor="grade">Grade:</label>
+                <div className="custom-select">
                     <select  name="grade" id="grade">
                         <option value={formData.grade}>9</option>
                         <option value={formData.grade}>10</option>
                         <option value={formData.grade}>11</option>
                         <option value={formData.grade}>12</option>
                     </select>
-                <label htmlFor="iep">IEP:</label>
+                </div>
+                <div>
+                    <label className="checkbox" htmlFor="iep">IEP: </label>
                     <input name="iep" id="iep" type="checkbox"></input>
-                <label htmlFor="plan504">504 Plan:</label>
+                </div>
+                <div>
+                    <label className="checkbox" htmlFor="plan504">504 Plan: </label>
                     <input name="plan504" id="plan504" type="checkbox"></input>
+                </div>
                 <label htmlFor="eld">ELD Level:</label>
+                <div className="custom-select">
                     <select  name="eld" id="eld">
                         <option value={formData.eld}>1</option>
                         <option value={formData.eld}>2</option>
@@ -71,6 +79,7 @@ const StudentForm = (props) => {
                         <option value={formData.eld}>FLEP</option>
                         <option value={formData.eld}>N/A</option>
                     </select>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </>
