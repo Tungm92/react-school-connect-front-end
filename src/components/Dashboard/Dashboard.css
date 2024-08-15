@@ -1,2 +1,8 @@
+.dashBoard-title {
+    margin: 2rem;
+}
 
+.dashBoard > p {
+    font-size: 3rem;
+}
 
