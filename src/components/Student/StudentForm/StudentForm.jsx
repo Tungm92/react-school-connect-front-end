@@ -32,25 +32,16 @@ const StudentForm = (props) => {
         }, [studentId, getStudentById]);
     };
 
-    
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        props.createStudent(formData)
+        if (studentId) {
+            await updateStudent(studentId, formData)
+        } else {
+            props.createStudent(formData)
+        }
         setFormData(initialState)
         navigate('/students') 
     }
-    
-    const handleUpdate = async (e) => {
-        e.preventDefault()
-        try {
-            await updateStudent(studentId, formData)
-            setFormData(initialState)
-            navigate('/students')
-        } catch (error) {
-            console.log(error)
-        };
-    };
     
     const handleChange = ({target}) => {
         const { name, value, type, checked } = target;
@@ -59,7 +50,7 @@ const StudentForm = (props) => {
             [name]: type === 'checkbox' ? checked : value,
         });
     };
-    console.log(formData)
+
     return(
         <>
             <form onSubmit={handleSubmit}>
