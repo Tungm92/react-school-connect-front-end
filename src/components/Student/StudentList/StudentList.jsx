@@ -17,6 +17,9 @@ const StudentList = ({getStudents}) => {
         fetchStudents();
       }, [getStudents]);
 
+    if (!students) {
+      return <p>Loading...</p>; 
+    }
     
     return(
         <>

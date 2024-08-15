@@ -32,9 +32,10 @@ Day 4:
 - finished delete log
 - corrected all log and student paths
 
-Stretch:
+Next Steps:
 
 - Log comments
 - View all logs
 - User roles: Admin, Teacher, Counselor
 - Admin mylogs has all logs option
+- LogForm includes a drop down of all students to select which student the log is for

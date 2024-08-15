@@ -19,7 +19,7 @@ const StudentForm = (props) => {
         e.preventDefault()
         props.createStudent(formData)
         setFormData(initialState)
-        navigate('/')//Navigate back to student list 
+        navigate('/students') 
     }   
     
     const handleChange = ({target}) => {
