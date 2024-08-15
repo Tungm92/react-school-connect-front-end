@@ -13,7 +13,7 @@ import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/StudentLogs/LogForm/LogForm'
 import LogList from './components/StudentLogs/LogList/LogList'
 import LogDetails from './components/StudentLogs/LogDetails/LogDetails'
-import {getStudents, createStudent, getStudentById, getStudentLogs} from './services/studentService'
+import { getStudents, createStudent, getStudentById, getStudentLogs } from './services/studentService'
 import {createLog, getLogs, getLogById} from './services/logService'
 import * as authService from '../src/services/authService'; // import the authservice
 import '../src/App.css'
