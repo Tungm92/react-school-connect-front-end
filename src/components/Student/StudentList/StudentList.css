@@ -1,5 +1,14 @@
 
 .student-list {
-    border-bottom: 1px solid black;
     margin: 1rem;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.flex-container {
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

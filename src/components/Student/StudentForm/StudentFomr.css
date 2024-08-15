@@ -1,0 +1,7 @@
+label {
+    display: inline-block !important;
+}
+
+#iep, #plan504 {
+    margin-left: 1rem;
+}

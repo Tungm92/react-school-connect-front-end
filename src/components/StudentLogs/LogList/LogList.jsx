@@ -26,11 +26,11 @@ const LogList = ({ getStudentLogs, getLogs }) => {
   return (
     <div>
       <h1>Your Logs</h1>
-      <Link to={`/mylogs/new`}><p>Add Log</p></Link>
+      <Link to={`/mylogs/new`}><p className="add-log-link">Add Log</p></Link>
       <ul className="all-logs">
         {logs.map((log) => (
         <li className="logs" key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}> {log.studentId.firstName ? 
-          `${log.purpose} about ${log.studentId.firstName}`
+          <div className="log-card"><p>{log.purpose} about <strong><span>{log.studentId.firstName}</span></strong></p></div>
         : `${log.purpose}` }</Link>
         </li>
         ))}
