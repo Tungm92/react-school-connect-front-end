@@ -1,27 +1,47 @@
-import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import './StudentFomr.css'
-
-const initialState = {
-    firstName:'',
-    lastName: '',
-    grade: '9',
-    iep: false,
-    plan504: false,
-    eld: '1'
-  };
-  
+import {useState, useEffect} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getStudentById, updateStudent } from '../../../services/studentService';
 
 const StudentForm = (props) => {
-    const [formData, setFormData] = useState(initialState);
+    
+    const initialState = {
+        firstName:'',
+        lastName: '',
+        grade: '9',
+        iep: false,
+        plan504: false,
+        eld: '1'
+    };
+
+    const { studentId } = useParams();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const [formData, setFormData] = useState(initialState);
+
+    if (studentId) {
+        useEffect(() => {
+            const fetchStudent = async () => {
+                try {
+                    const student = await getStudentById(studentId);
+                    setFormData(student);
+                } catch (error) {
+                    console.error('Failed to fetch student: ', error);
+                };
+            };
+            fetchStudent()
+        }, [studentId, getStudentById]);
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        props.createStudent(formData)
+        if (studentId) {
+            await updateStudent(studentId, formData)
+        } else {
+            props.createStudent(formData)
+        }
         setFormData(initialState)
-        navigate('/')//Navigate back to student list 
-    }   
+        navigate('/students') 
+    }
     
     const handleChange = ({target}) => {
         const { name, value, type, checked } = target;
@@ -52,34 +72,26 @@ const StudentForm = (props) => {
                     onChange={handleChange}
                     />        
                 <label htmlFor="grade">Grade:</label>
-                <div className="custom-select">
-                    <select  name="grade" id="grade">
-                        <option value={formData.grade}>9</option>
-                        <option value={formData.grade}>10</option>
-                        <option value={formData.grade}>11</option>
-                        <option value={formData.grade}>12</option>
+                    <select  name="grade" id="grade" value={formData.grade} onChange={handleChange}>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
-                </div>
-                <div>
-                    <label className="checkbox" htmlFor="iep">IEP: </label>
-                    <input name="iep" id="iep" type="checkbox"></input>
-                </div>
-                <div>
-                    <label className="checkbox" htmlFor="plan504">504 Plan: </label>
-                    <input name="plan504" id="plan504" type="checkbox"></input>
-                </div>
+                <label htmlFor="iep">IEP:</label>
+                    <input name="iep" id="iep" type="checkbox" value={formData.iep} onChange={handleChange}></input>
+                <label htmlFor="plan504">504 Plan:</label>
+                    <input name="plan504" id="plan504" type="checkbox" value={formData.plan504} onChange={handleChange}></input>
                 <label htmlFor="eld">ELD Level:</label>
-                <div className="custom-select">
-                    <select  name="eld" id="eld">
-                        <option value={formData.eld}>1</option>
-                        <option value={formData.eld}>2</option>
-                        <option value={formData.eld}>3</option>
-                        <option value={formData.eld}>4</option>
-                        <option value={formData.eld}>5</option>
-                        <option value={formData.eld}>FLEP</option>
-                        <option value={formData.eld}>N/A</option>
+                    <select  name="eld" id="eld" value={formData.eld} onChange={handleChange}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="FLEP">FLEP</option>
+                        <option value="N/A">N/A</option>
                     </select>
-                </div>
                 <button type="submit">Submit</button>
             </form>
         </>

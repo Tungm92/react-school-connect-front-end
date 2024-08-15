@@ -20,7 +20,7 @@ const EditLog = ({ updateLog, getLogById }) => {
         const fetchLog = async () => {
             try {
                 const log = await getLogById(logId)
-                setFormData({ purpose: log.puspose, notes: log.notes });
+                setFormData(log);
              } catch (error) {
                 console.error('Failed to fetch log:', error);
               }
