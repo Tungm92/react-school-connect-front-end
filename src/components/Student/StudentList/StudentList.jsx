@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './StudentList.css'
 const StudentList = ({getStudents}) => {
     const [students, setStudents] = useState([])
-    const navigate = useNavigate()
-
-    const handleNavigate = () => {
-        navigate('/students/new')
-      }
 
     useEffect(() => {
         const fetchStudents = async () => {
@@ -29,7 +24,6 @@ const StudentList = ({getStudents}) => {
                 <ul>
                 {students.map(student => (
                     <li className="student-list"key={student._id}>
-
                         <Link to={`/students/${student._id}`}><p><strong>{student.lastName}, {student.firstName}</strong></p> </Link>
                         <p>Grade: {student.grade}</p>
 
