@@ -13,8 +13,9 @@ import StudentForm from './components/Student/StudentForm/StudentForm'
 import LogForm from './components/StudentLogs/LogForm/LogForm'
 import LogList from './components/StudentLogs/LogList/LogList'
 import LogDetails from './components/StudentLogs/LogDetails/LogDetails'
+import EditLog from './components/StudentLogs/EditLog/EditLog'
 import { getStudents, createStudent, getStudentById, getStudentLogs } from './services/studentService'
-import {createLog, getLogs, getLogById} from './services/logService'
+import {createLog, getLogs, getLogById, updateLog, deleteLog} from './services/logService'
 import * as authService from '../src/services/authService'; // import the authservice
 import '../src/App.css'
 
@@ -39,7 +40,9 @@ const App = () => {
 
             <Route path="/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />
             <Route path="/mylogs" element={<LogList user={user} getLogs={getLogs}/>} />
-            <Route path="/students/:studentId/logs/:logId" element={<LogDetails user={user} getLogById = {getLogById} getStudentLogs={getStudentLogs}/>} />
+            <Route path="/students/:studentId/edit/logs/:logId" element={<EditLog user={user} getLogById = {getLogById} updateLog = {updateLog}/>} />
+            <Route path="/students/:studentId/logs/:logId" element={<LogDetails user={user} deleteLog={deleteLog} getLogById = {getLogById} getStudentLogs={getStudentLogs}/>} />
+
           </>
         ) : (
           <Route path="/" element={<Landing />} />

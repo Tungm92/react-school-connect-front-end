@@ -36,7 +36,28 @@ const createLog = async (log) => {
     return response.json();
 }
 
+const updateLog = async (logId, log) => {
+    const response = await fetch(`${BASE_URL}/${logId}`, {
+        method: 'PUT',
+        headers: { 
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json' },
+        body: JSON.stringify(log),
+      });
+      if (!response.ok) throw new Error('Failed to update log');
+      return response.json();
+}
+
+const deleteLog = async (logId) => {
+    const response = await fetch(`${BASE_URL}/${logId}`, {
+      method: 'DELETE',
+      headers: { 
+        Authorization: `Bearer ${localStorage.getItem('token')}`}
+    });
+    if (!response.ok) throw new Error('Failed to delete log');
+    return response.json();
+  };
 
 
 
-export{createLog, getLogs, getLogById}
+export{createLog, getLogs, getLogById, updateLog, deleteLog}
