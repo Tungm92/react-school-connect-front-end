@@ -6,8 +6,9 @@
       "header header header header"
       "main main main main"
       "sidebar-right sidebar-right sidebar-left sidebar-left"
+      "sidebar-right-two sidebar-right-two sidebar-left-two sidebar-left-two"
       "footer footer footer footer";
-    gap: 20px; /* Optional: Adjust the gap between grid items */
+      row-gap: 70px; /* This sets the vertical gap between rows */
   }
   
   .item-a {
@@ -21,15 +22,28 @@
   .item-c {
     grid-area: sidebar-right;
     align-self: center;
-    border: 1px solid black;
   }
 
   .item-d {
     grid-area: sidebar-left;
   }
-  
+
   .item-e {
+    grid-area: sidebar-right-two;
+  }
+
+  .item-f {
+    grid-area: sidebar-left-two;
+    align-self: center;
+  }
+
+  .item-g {
     grid-area: footer;
+    background-color: gray;
+    height: 200px;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
   }
   
   .highlight-color {
@@ -53,7 +67,6 @@
   header{
     background-image: url('../../assets/dashboard-photo1.png');
     height: 600px;
-    border: 1px solid black;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,5 +75,7 @@
 
   header h1 {
     position: absolute;
+    top: 50%;
+    left: 25%;
   }
   

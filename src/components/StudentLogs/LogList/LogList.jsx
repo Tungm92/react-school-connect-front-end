@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-
+import './LogList.css'
 const LogList = ({ getStudentLogs, getLogs }) => {
   const { studentId } = useParams();
   const [logs, setLogs] = useState([]);
@@ -25,10 +25,11 @@ const LogList = ({ getStudentLogs, getLogs }) => {
 
   return (
     <div>
-      <h1>These are the logs</h1>
-      <ul>
+      <h1>Your Logs</h1>
+      <ul className="all-logs">
         {logs.map((log) => (
-        <li key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}>{log.purpose}</Link>: {log.notes}</li>
+        <li className="logs" key={log._id}><Link to={`/students/${log.studentId._id}/logs/${log._id}`}> {log.studentId.firstName ? `${log.purpose} about ${log.studentId.firstName}`
+        : `${log.purpose}` }</Link></li>
         ))}
       </ul>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
+import './StudentList.css'
 const StudentList = ({getStudents}) => {
     const [students, setStudents] = useState([])
     const navigate = useNavigate()
@@ -28,10 +28,10 @@ const StudentList = ({getStudents}) => {
             <h1>Student List</h1>
                 <ul>
                 {students.map(student => (
-                    <li key={student._id}>
+                    <li className="student-list"key={student._id}>
 
-                        <Link to={`/students/${student._id}`}><p>{student.lastName}, {student.firstName}</p> </Link>
-                        <p>{student.grade}</p>{/* Add more stuff later: IEP, 504 Plan, ELD level, and logs */}
+                        <Link to={`/students/${student._id}`}><p><strong>{student.lastName}, {student.firstName}</strong></p> </Link>
+                        <p>Grade: {student.grade}</p>
 
                     </li>
                 ))}

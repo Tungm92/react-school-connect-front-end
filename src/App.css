@@ -7,6 +7,7 @@
   list-style: none;
   font-family: 'Montserrat', sans-serif;
   color: #4A4A4A;
+  text-decoration: none;
 }
 
 html, body {
@@ -20,6 +21,40 @@ h1, h2, h3, h4 {
   color: #4A90E2;
 }
 
+p {
+  font-size: 1.3rem;
+}
+
 .hightlight-color {
   color: purple;
+}
+
+form {
+  margin: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-size: 1.25rem;
+  margin: 1rem;
+}
+
+button{
+  margin: 2rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #4A4A4A;
+  color: white;
+  font-size: 1.5rem;
+}
+
+button:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
 }

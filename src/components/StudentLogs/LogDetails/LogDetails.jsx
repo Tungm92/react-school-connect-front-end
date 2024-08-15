@@ -21,11 +21,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 
     return(
         <>
-            <h1>This is the detail page</h1>
             <h1>{logData.studentId.lastName}, {logData.studentId.firstName} Log</h1>
             <br />
-            <p>{logData.purpose}</p>
-            <p>{logData.notes}</p>
+            <p>Title: {logData.purpose}</p>
+            <p>Content: {logData.notes}</p>
             <button>Edit</button>
             <button>Delete</button>
         </>

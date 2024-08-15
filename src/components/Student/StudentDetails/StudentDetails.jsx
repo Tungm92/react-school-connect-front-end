@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import LogList from '../../StudentLogs/LogList/LogList'
 
 const StudentDetails = ({getStudentById, getStudentLogs}) => {

@@ -38,8 +38,6 @@ const App = () => {
             
 
             <Route path="/students/:studentId/logs/new" element={<LogForm user={user} createLog={createLog}/>} />
-Feature/log
-            <Route path="/students/:studentId/logs" element={<LogList user={user} getStudentLogs={getStudentLogs}/>} />
             <Route path="/mylogs" element={<LogList user={user} getLogs={getLogs}/>} />
             <Route path="/students/:studentId/logs/:logId" element={<LogDetails user={user} getLogById = {getLogById} getStudentLogs={getStudentLogs}/>} />
           </>
