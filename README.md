@@ -5,7 +5,10 @@
 School Connect is a Log app where teachers keep tracks of student's academic progress.
 
 ## Background Info ℹ️
-The app is chosen for.....
+
+In K-12 education, teachers are often on the go without being able to record any interactions that may end up being pertinent for records and/or providing the steps needed to support students. This app is designed with thinking through how teachers have to make records but aren't always in front of their computer. So, why not make a Student Information System (SIS) that can be logged through the phone?
+
+School Connect is intended to support teachers in making their referrals for their students, record particularly meaty interactions and actions taken, so that schools can better manage all the busy-ness that is education.
 
 ## Getting Started 🚀
 1. Sign Up to pretend to be a teacher 👨‍🏫
@@ -20,6 +23,7 @@ The app is chosen for.....
 ## Attributions 👨🏻‍💻
 No Attributes
 
+
 ## Language Used 📝
 <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=html,css,react,nodejs,expressjs,mongodb,postman" />
@@ -30,4 +34,4 @@ No Attributes
 - View all logs
 - User roles: Admin, Teacher, Counselor
 - Admin mylogs has all logs option
-- LogForm includes a drop down of all students to select which student the log is for
+
