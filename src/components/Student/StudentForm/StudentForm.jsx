@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getStudentById, updateStudent } from '../../../services/studentService';
+import './StudentForm.css'
 
 const StudentForm = (props) => {
     
